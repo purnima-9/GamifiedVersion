@@ -1,0 +1,234 @@
+*{box-sizing:border-box}#root{width:100%;height:100%;margin:0;max-width:none;text-align:left}html,body{font-family:'Minecraft','Arial',sans-serif;-webkit-font-smoothing:none;background:#87CEEB}.game-shell{position:relative;isolation:isolate;width:100%;height:100vh;overflow:auto;background:linear-gradient(180deg,#87CEEB 0%,#87CEEB 40%,#90EE90 100%);color:#000}.world-backdrop,.world-vignette,.bottom-slogan,.round-back,.place-chip,.move-hint,.runner-status{display:none}
+.top-hud{display:none}
+
+/* Main sections */
+.welcome-scene,.character-select-scene,.user-info-scene,.game-scene,.complete-scene,.map-scene{position:relative;width:100%;min-height:80vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 20px;overflow:auto}
+
+.welcome-scene{background:linear-gradient(180deg,#87CEEB 0%,#87CEEB 40%,#90EE90 100%)}
+.character-select-scene{background:linear-gradient(180deg,#87CEEB 0%,#87CEEB 40%,#90EE90 100%)}
+.user-info-scene{background:linear-gradient(180deg,#87CEEB 0%,#87CEEB 40%,#90EE90 100%)}
+.game-scene{background:linear-gradient(180deg,#87CEEB 0%,#87CEEB 40%,#90EE90 100%);display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:0;position:relative;min-height:100vh}
+.complete-scene{background:linear-gradient(180deg,#87CEEB 0%,#87CEEB 40%,#90EE90 100%)}
+
+.welcome-copy,.character-select-copy,.user-info-copy{background:#F5DEB3;border:6px solid #000;padding:35px;max-width:500px;width:100%;text-align:center;box-shadow:8px 8px 0px rgba(0,0,0,0.4);margin:20px}
+
+.eyebrow{display:inline-block;color:#704214;font-weight:900;font-size:12px;letter-spacing:2px;text-transform:uppercase;margin-bottom:15px;text-shadow:2px 2px 0px rgba(255,255,255,0.5)}
+
+h1{font-size:38px;font-weight:900;color:#000;margin:15px 0;line-height:1.2;text-transform:uppercase;letter-spacing:1px}
+h1 em{font-style:normal;color:#704214}
+
+p{font-size:15px;color:#333;line-height:1.6;margin:12px 0}
+
+.gold-cta{background:#92AD58;color:#fff;border:4px solid #000;padding:14px 32px;font-size:15px;font-weight:900;cursor:pointer;box-shadow:4px 4px 0px rgba(0,0,0,0.4);transition:all 0.1s;margin-top:20px;text-transform:uppercase;letter-spacing:1px;text-shadow:1px 1px 0px rgba(0,0,0,0.3);font-family:'Minecraft','Arial',sans-serif}
+.gold-cta:hover{transform:translate(2px,2px);box-shadow:2px 2px 0px rgba(0,0,0,0.4)}
+.gold-cta:active{transform:translate(4px,4px);box-shadow:0px 0px 0px rgba(0,0,0,0.4)}
+.gold-cta:disabled{opacity:0.6;cursor:not-allowed}
+
+.character-options{display:grid;grid-template-columns:1fr 1fr;gap:25px;width:100%;max-width:520px;margin:30px auto}
+
+.character-choice{background:#F5DEB3;border:6px solid #000;padding:25px;cursor:pointer;transition:all 0.1s;box-shadow:6px 6px 0px rgba(0,0,0,0.3);text-align:center}
+.character-choice:hover{transform:translate(-3px,-3px);box-shadow:9px 9px 0px rgba(0,0,0,0.3)}
+.character-choice-active{background:#92AD58;border-color:#000;box-shadow:6px 6px 0px rgba(0,0,0,0.4);color:#fff}
+
+.character-choice strong{display:block;font-size:18px;color:#704214;margin:10px 0;font-weight:900;text-transform:uppercase;text-shadow:2px 2px 0px rgba(255,255,255,0.3)}
+.character-choice-active strong{color:#fff;text-shadow:2px 2px 0px rgba(0,0,0,0.4)}
+
+.character-choice small{font-size:13px;color:#555;line-height:1.4;text-shadow:1px 1px 0px rgba(255,255,255,0.3)}
+
+.character-art.character-emoji{font-size:64px;margin:8px 0;display:block;line-height:1;filter:drop-shadow(3px 3px 0px rgba(0,0,0,0.2))}
+
+.character-select-status{display:inline-block;margin-top:12px;font-size:12px;color:#704214;font-weight:900;text-transform:uppercase;text-shadow:1px 1px 0px rgba(255,255,255,0.3)}
+
+.user-info-form{width:100%;max-width:500px}
+
+.form-group{margin:20px 0;text-align:left}
+.form-group label{display:block;font-weight:900;color:#704214;margin-bottom:10px;font-size:14px;text-transform:uppercase;text-shadow:1px 1px 0px rgba(255,255,255,0.3)}
+.form-group input,.form-group select{width:100%;padding:12px 15px;border:4px solid #000;border-radius:0;font-size:14px;font-family:'Minecraft','Arial',sans-serif;background:#FFF;color:#000;transition:all 0.1s;box-shadow:4px 4px 0px rgba(0,0,0,0.3);font-weight:700}
+.form-group input:focus,.form-group select:focus{outline:none;border-color:#704214;box-shadow:6px 6px 0px rgba(0,0,0,0.3);transform:translate(-2px,-2px)}
+
+.required{color:#E53935;font-weight:900}
+
+.game-scene .runner-world{position:absolute;inset:0;z-index:0;width:100%;height:100%;background:linear-gradient(180deg,#87CEEB 0%,#87CEEB 40%,#90EE90 100%)}
+
+/* QUESTION BANNER — compact, keeps the upper gate labels visible */
+.question-banner{position:fixed;top:76px;left:50%;transform:translateX(-50%);z-index:20;background:#FFF;border:4px solid #000;padding:8px 14px;max-width:600px;width:calc(100% - 32px);box-shadow:4px 4px 0px rgba(0,0,0,0.3);text-align:center;pointer-events:none}
+.question-banner .question-cup{display:none}
+.question-banner .question-content .eyebrow{margin:0 0 5px;font-size:11px;line-height:1.2}
+.question-banner h2{font-size:18px;font-weight:900;color:#000;margin:0;line-height:1.18;text-transform:uppercase;letter-spacing:0.5px;background:#FFD700;padding:6px 10px;text-shadow:1px 1px 0px rgba(0,0,0,0.15)}
+.question-banner p{font-size:12px;color:#333;margin:5px 0 0;line-height:1.25;text-shadow:0.5px 0.5px 0px rgba(255,255,255,0.3)}
+.question-content .eyebrow{color:#704214;text-shadow:1px 1px 0px rgba(255,255,255,0.3)}
+.question-glint{display:none}
+
+/* The game HUD is visible only while playing; preserve the existing typeface. */
+.game-shell:has(.game-scene) .top-hud{display:flex;position:fixed;top:12px;left:16px;right:16px;z-index:210;align-items:center;justify-content:space-between;min-height:42px;pointer-events:none}
+.game-shell:has(.game-scene) .top-hud>*{pointer-events:auto}
+.brand-mark{display:flex;align-items:center;gap:9px;background:#F5DEB3;border:3px solid #000;padding:6px 10px;box-shadow:3px 3px 0 rgba(0,0,0,.25);font-family:'Minecraft','Arial',sans-serif;color:#000;text-align:left}
+.brand-mark .brand-heart{display:grid;place-items:center;width:26px;height:26px;background:#704214;color:#FFD700;font-weight:900;border:2px solid #000}
+.brand-mark strong,.brand-mark small{display:block}
+.brand-mark strong{font-size:12px;text-transform:uppercase}
+.brand-mark small{font-size:9px;margin-top:2px}
+.top-actions{display:flex;align-items:center;gap:7px}
+.round-control,.language-pill{display:grid;place-items:center;min-width:34px;height:34px;padding:5px;background:#F5DEB3;color:#000;border:3px solid #000;box-shadow:3px 3px 0 rgba(0,0,0,.25);font-family:'Minecraft','Arial',sans-serif;font-weight:900}
+.journey-meter{position:absolute;top:0;left:50%;transform:translateX(-50%);z-index:211;background:#F5DEB3;border:3px solid #000;padding:5px 10px;border-radius:0;box-shadow:3px 3px 0px rgba(0,0,0,0.25);max-width:300px;width:min(300px,32vw)}
+.meter-title{display:flex;align-items:center;gap:6px;font-size:10px;font-weight:900;color:#704214;text-transform:uppercase;letter-spacing:0.5px;text-shadow:1px 1px 0px rgba(255,255,255,0.3)}
+.meter-title svg{color:#704214}
+.meter-title b{margin-left:auto;font-size:10px;color:#704214;font-weight:900}
+.meter-track{height:6px;margin-top:5px;overflow:hidden;border-radius:0;background:#DDD;border:2px solid #000}
+.meter-track span{display:block;height:100%;background:linear-gradient(90deg,#FFD700,#FFA500);transition:width 0.3s ease}
+
+/* DOOR ROW - POSITIONED BELOW QUESTION, NO OVERLAP */
+.door-row{position:relative;z-index:5;display:grid;grid-template-columns:1fr 1fr;gap:25px;width:100%;max-width:550px;margin:150px auto 60px;padding:0}
+
+.door-option{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:140px;padding:20px;background:#FFF;border:6px solid #000;cursor:pointer;box-shadow:6px 6px 0px rgba(0,0,0,0.3);transition:all 0.1s;font-weight:900;color:#000;text-transform:uppercase;letter-spacing:0.5px;font-family:'Minecraft','Arial',sans-serif}
+
+.door-option:hover{transform:translate(-3px,-3px);box-shadow:9px 9px 0px rgba(0,0,0,0.3)}
+.door-option:active{transform:translate(3px,3px);box-shadow:3px 3px 0px rgba(0,0,0,0.3)}
+
+.door-option.is-selected{background:#92AD58;border-color:#000;color:#fff;box-shadow:6px 6px 0px rgba(0,0,0,0.4);transform:translate(-2px,-2px)}
+
+.door-amber{background:#FFD700;color:#000}
+.door-amber.is-selected{background:#FFA500;color:#fff}
+
+.door-blue{background:#87CEEB;color:#000}
+.door-blue.is-selected{background:#4169E1;color:#fff}
+
+.door-violet{background:#DDA0DD;color:#000}
+.door-violet.is-selected{background:#9370DB;color:#fff}
+
+.door-green{background:#90EE90;color:#000}
+.door-green.is-selected{background:#228B22;color:#fff}
+
+.door-sign,.door-frame,.door-arch,.door-panel,.door-emblem,.door-knob,.door-enter{display:none}
+
+.door-answer{position:relative;font-size:15px;font-weight:900;text-align:center;line-height:1.3;width:100%;text-transform:uppercase;letter-spacing:0.5px;text-shadow:2px 2px 0px rgba(255,255,255,0.3)}
+.door-option.is-selected .door-answer{text-shadow:2px 2px 0px rgba(0,0,0,0.3)}
+
+.complete-scene{padding:80px 20px 60px;text-align:center}
+
+.reward-orbit{display:flex;align-items:center;justify-content:center;width:120px;height:120px;margin:30px auto;background:#92AD58;border:6px solid #000;box-shadow:6px 6px 0px rgba(0,0,0,0.3);font-size:60px;font-weight:900;color:#fff;text-shadow:2px 2px 0px rgba(0,0,0,0.3)}
+
+.complete-scene h1{font-size:40px;margin:25px 0;color:#000;text-transform:uppercase}
+.complete-scene p{font-size:16px;color:#333;max-width:500px;margin:15px auto;text-shadow:1px 1px 0px rgba(255,255,255,0.3)}
+
+.completion-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:25px;max-width:500px;width:100%;margin:40px auto}
+
+.completion-stats span{background:#F5DEB3;border:6px solid #000;padding:20px 15px;text-align:center;box-shadow:4px 4px 0px rgba(0,0,0,0.3)}
+
+.completion-stats strong{display:block;font-size:32px;color:#704214;font-weight:900;margin-bottom:8px;text-transform:uppercase;text-shadow:2px 2px 0px rgba(255,255,255,0.3)}
+.completion-stats small{display:block;font-size:12px;color:#555;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;text-shadow:1px 1px 0px rgba(255,255,255,0.3)}
+
+.demo-note{font-size:12px;color:#666;margin-top:30px;font-weight:700;text-shadow:1px 1px 0px rgba(255,255,255,0.3)}
+
+.back-link{background:none;border:none;color:#704214;cursor:pointer;font-weight:900;font-size:14px;display:flex;align-items:center;gap:8px;margin-top:25px;transition:all 0.1s;text-transform:uppercase;text-shadow:2px 2px 0px rgba(255,255,255,0.3)}
+.back-link:hover{transform:translate(-2px,0)}
+
+.welcome-character,.welcome-emoji,.welcome-hint,.welcome-meta{display:none}
+.map-scene,.destination-row,.destination-card{display:none}
+
+.scene-footer{position:fixed;bottom:25px;left:50%;transform:translateX(-50%);z-index:100;background:#F5DEB3;border:6px solid #000;padding:12px 30px;box-shadow:4px 4px 0px rgba(0,0,0,0.3)}
+
+.enter-cta{background:#92AD58;color:#fff;border:4px solid #000;padding:14px 32px;font-size:15px;font-weight:900;cursor:pointer;box-shadow:4px 4px 0px rgba(0,0,0,0.4);transition:all 0.1s;text-transform:uppercase;letter-spacing:1px;text-shadow:1px 1px 0px rgba(0,0,0,0.3);font-family:'Minecraft','Arial',sans-serif}
+.enter-cta:hover:not(:disabled){transform:translate(2px,2px);box-shadow:2px 2px 0px rgba(0,0,0,0.4)}
+.enter-cta:disabled{opacity:0.5;cursor:not-allowed}
+
+@font-face{font-family:'Minecraft';src:local('Minecraft'),local('Arial Black'),local('Arial'),sans-serif;font-weight:normal;font-style:normal}
+
+@media(max-width:600px){
+  h1{font-size:32px}
+  .welcome-copy,.character-select-copy,.user-info-copy{padding:25px;max-width:100%;margin:15px}
+  .character-options{grid-template-columns:1fr;gap:20px;max-width:100%}
+  .door-row{max-width:100%;gap:20px;margin-bottom:40px;margin-top:120px}
+  .door-option{min-height:120px;padding:15px;font-size:14px}
+  .game-shell:has(.game-scene) .top-hud{top:8px;left:8px;right:8px;min-height:34px}
+  .brand-mark{padding:4px 6px;gap:5px}
+  .brand-mark strong{font-size:10px}
+  .brand-mark small{display:none}
+  .brand-mark .brand-heart{width:22px;height:22px}
+  .question-banner{top:58px;max-width:600px;width:calc(100% - 24px);padding:7px 10px;border-width:3px}
+  .question-banner h2{font-size:15px;padding:5px 7px}
+  .question-banner p{font-size:10px;margin:4px 0 0}
+  .journey-meter{top:0;max-width:180px;width:36vw;padding:4px 7px;border-width:2px}
+  .meter-title{font-size:9px}
+  .meter-title svg{display:none}
+  .scene-footer{padding:10px 25px;border-width:5px}
+}
+
+body{margin:0;padding:0;background:#87CEEB}
+
+.price-answer-panel{position:fixed;z-index:90;top:50%;left:50%;transform:translate(-50%,-50%);display:flex;flex-direction:column;gap:12px;width:min(420px,calc(100% - 32px));padding:24px;background:#F5DEB3;border:5px solid #000;box-shadow:6px 6px 0 rgba(0,0,0,.35)}
+.price-answer-panel label{font-size:16px;font-weight:900;color:#704214;text-transform:uppercase}
+.price-answer-panel input{width:100%;padding:13px;border:3px solid #000;background:#fff;color:#000;font:700 18px 'Minecraft','Arial',sans-serif}
+.inline-error{position:fixed;z-index:220;left:50%;bottom:105px;transform:translateX(-50%);max-width:min(680px,calc(100% - 32px));padding:12px 16px;background:#fff0f0;border:3px solid #a32020;color:#761313;font-size:13px;font-weight:700;box-shadow:4px 4px 0 rgba(0,0,0,.25)}
+.character-error{position:relative;left:auto;bottom:auto;transform:none;margin:0 auto 16px}
+.round-back:disabled{opacity:.45;cursor:not-allowed}
+
+.welcome-scene,.character-select-scene{min-height:100vh}
+.welcome-scene{padding:20px 16px}
+.welcome-copy{margin:0;padding:clamp(22px,4vh,34px)}
+.welcome-copy h1{margin:0;font-size:clamp(28px,5vw,38px);line-height:1.08}
+.welcome-copy p{margin:10px 0;font-size:14px}
+.welcome-copy .gold-cta{margin-top:10px}
+.welcome-scene .welcome-meta{display:flex;justify-content:center;gap:18px;margin-top:18px;color:#704214;font-size:12px;font-weight:900;text-transform:uppercase}
+.game-options{position:fixed;z-index:80;left:50%;bottom:116px;transform:translateX(-50%);display:grid;grid-template-columns:repeat(auto-fit,minmax(185px,1fr));gap:9px;width:min(760px,calc(100% - 32px));max-height:42vh;overflow-y:auto;padding:8px;pointer-events:auto}
+.game-option{position:relative;display:flex;align-items:center;gap:10px;min-height:52px;padding:9px 13px;background:#fff8e9;border:3px solid #352333;color:#271b2d;text-align:left;font:800 13px 'Minecraft','Arial',sans-serif;line-height:1.25;box-shadow:4px 4px 0 rgba(0,0,0,.32);transition:transform .14s,box-shadow .14s,background .14s;cursor:pointer}
+.game-option:hover:not(:disabled){transform:translateY(-3px);box-shadow:5px 7px 0 rgba(0,0,0,.3)}
+.game-option:disabled{opacity:.76}
+.game-option-selected{background:#f5c65d;border-color:#78451c;box-shadow:0 0 0 3px rgba(255,224,137,.5),4px 4px 0 rgba(0,0,0,.32)}
+.option-number{display:grid;place-items:center;flex:0 0 27px;height:27px;background:#4a3650;color:#fff6e6;border:2px solid #24182c;font-size:12px}
+.option-label{flex:1}
+.option-check{font-size:18px;color:#28592f}
+.option-amber{border-left:7px solid #ffbd54}
+.option-blue{border-left:7px solid #66dce5}
+.option-violet{border-left:7px solid #d39bff}
+.option-green{border-left:7px solid #9bcf68}
+.top-actions{gap:6px}
+.game-clock,.timer-toggle,.spark-counter{display:flex;align-items:center;justify-content:center;gap:6px;min-height:34px;padding:5px 8px;background:#f5deb3;border:3px solid #000;color:#392817;box-shadow:3px 3px 0 rgba(0,0,0,.24);font-size:10px;font-weight:900;white-space:nowrap}
+.game-clock{font-variant-numeric:tabular-nums}
+.timer-toggle{cursor:pointer}
+.timer-toggle:hover{background:#ffe8a0}
+.spark-counter svg{color:#9b651a}
+.pause-shade{position:fixed;z-index:300;inset:0;display:grid;place-items:center;padding:24px;background:rgba(25,17,36,.72);backdrop-filter:blur(5px)}
+.pause-card{width:min(440px,100%);padding:30px;text-align:center;background:#f5deb3;border:5px solid #000;box-shadow:9px 9px 0 rgba(0,0,0,.36)}
+.pause-card h2{margin:0;color:#352333;font-size:26px;text-transform:uppercase}
+.pause-card p{margin:14px 0;color:#493a32}
+.pause-card .gold-cta{display:inline-flex;align-items:center;justify-content:center;gap:9px}
+.meter-title{font-size:10px}
+.meter-track{height:10px}
+.meter-track span{background:linear-gradient(90deg,#f68c42,#ffd65e,#87c96e)}
+.scene-footer{display:flex;align-items:center;justify-content:center;gap:12px;width:min(760px,calc(100% - 32px));padding:10px 16px;border-width:4px}
+.game-scene .scene-footer .round-back{display:grid;place-items:center;width:38px;height:38px;padding:6px;background:#fff;color:#392817;border:3px solid #000;box-shadow:3px 3px 0 rgba(0,0,0,.24)}
+.game-scene .scene-footer .place-chip{display:flex;align-items:center;gap:8px;color:#392817}
+.game-scene .scene-footer .place-chip .place-icon{display:grid;place-items:center}
+.game-scene .scene-footer .move-hint{display:flex;align-items:center;gap:4px;color:#392817}
+.game-scene .scene-footer .runner-status{display:flex}
+.game-scene .runner-world{background:linear-gradient(180deg,#97d7e8 0%,#c6e2d1 52%,#9b8b7e 53%,#8b796b 100%)}
+.question-banner{max-width:660px}
+.question-banner h2{font-size:clamp(14px,2vw,19px)}
+.scene-footer .place-chip{max-width:38vw;overflow:hidden}
+.scene-footer .place-chip small{display:block;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+@media(max-width:700px){
+  .game-shell:has(.game-scene) .top-hud{left:7px;right:7px;top:7px;align-items:flex-start}
+  .game-shell:has(.game-scene) .top-hud .brand-mark{display:none}
+  .journey-meter{top:43px;width:min(260px,62vw);max-width:260px}
+  .top-actions{gap:4px}
+  .game-clock,.timer-toggle,.spark-counter{min-height:30px;padding:4px 6px;border-width:2px;font-size:9px}
+  .timer-toggle span,.spark-counter span{display:none}
+  .game-options{bottom:105px;width:calc(100% - 20px);grid-template-columns:repeat(auto-fit,minmax(135px,1fr));gap:6px;padding:4px;max-height:39vh}
+  .game-option{min-height:45px;padding:6px 8px;font-size:11px;border-width:2px}
+  .game-option.option-amber,.game-option.option-blue,.game-option.option-violet,.game-option.option-green{border-left-width:5px}
+  .scene-footer{bottom:10px;gap:7px;padding:8px;border-width:3px}
+  .scene-footer .place-chip{max-width:34vw}
+  .scene-footer .move-hint{display:none}
+  .enter-cta{padding:9px 10px;font-size:10px;border-width:3px}
+  .round-back{min-width:28px;padding:4px}
+  .price-answer-panel{top:52%}
+}
+
+@media(max-height:650px){
+  .welcome-scene{min-height:100vh;padding:12px}
+  .welcome-copy{padding:20px}
+  .welcome-copy h1{font-size:clamp(25px,4.5vw,32px)}
+  .welcome-copy .welcome-meta{margin-top:10px}
+  .game-options{bottom:102px;max-height:35vh}
+}
